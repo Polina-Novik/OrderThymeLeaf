@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/MyStyle.css}">
+</head>
+<body>
+<h1>Products:</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Add</th>
+    </tr>
+    <th:block th:each="current:${shopGoods}">
+        <tr>
+            <td th:text="${current.id}"></td>
+            <td th:text="${current.name}"></td>
+            <td th:text="${current.price}"></td>
+            <td><a th:href="@{/form/add/{id}(id=${current.id})}">Add</a></td>
+
+        </tr>
+    </th:block>
+</table>
+<h1>Your products:</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="current:${orderGoods}">
+        <tr>
+            <td th:text="${current.id}"></td>
+            <td th:text="${current.name}"></td>
+            <td th:text="${current.price}"></td>
+            <td><a th:href="@{/form/delete/{id}(id=${current.id})}">Delete</a></td>
+
+        </tr>
+    </th:block>
+</table>
+<form th:action="@{enter}" method="post" th:object="${order1}">
+
+    <input type="text" th:field="*{clientName}"/> <span th:if="${#fields.hasErrors('clientName')}" th:errors="*{clientName}"></span>
+    <input type="text" th:field="*{address}"/> <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+    <input type="submit" value="Submit"/>
+
+</form>
+</body>
+</html>
