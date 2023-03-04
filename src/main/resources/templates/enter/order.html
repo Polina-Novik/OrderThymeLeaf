@@ -13,8 +13,8 @@
     <h2 th:text="${current.goods}"></h2>
     <h2 th:text="${current.clientName}"></h2>
     <h2 th:text="${current.address}"></h2>
-    <a th:href="@{/order/delete_order/{id}(id=${current.clientId})}">Delete</a>
-    <a th:href="@{/order/update/{id}(id=${current.clientId})}">Change order information</a>
+    <a th:href="@{/enter/order/delete_order/{id}(id=${current.clientId})}">Delete</a>
+    <a th:href="@{/enter/order/update/{id}(id=${current.clientId})}">Change order information</a>
 </div>
 <a th:href="@{/enter}">New order</a>
 </body>

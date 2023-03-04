@@ -1,4 +1,4 @@
-package by.novik.thymeleaforder.model;
+package by.novik.orderthymeleaf.model;
 
 
 import lombok.AllArgsConstructor;

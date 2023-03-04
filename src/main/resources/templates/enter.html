@@ -19,7 +19,7 @@
             <td th:text="${current.id}"></td>
             <td th:text="${current.name}"></td>
             <td th:text="${current.price}"></td>
-            <td><a th:href="@{/form/add/{id}(id=${current.id})}">Add</a></td>
+            <td><a th:href="@{/enter/add/{id}(id=${current.id})}">Add</a></td>
 
         </tr>
     </th:block>
@@ -37,7 +37,7 @@
             <td th:text="${current.id}"></td>
             <td th:text="${current.name}"></td>
             <td th:text="${current.price}"></td>
-            <td><a th:href="@{/form/delete/{id}(id=${current.id})}">Delete</a></td>
+            <td><a th:href="@{/enter/delete/{id}(id=${current.id})}">Delete</a></td>
 
         </tr>
     </th:block>
