@@ -44,8 +44,10 @@
 </table>
 <form th:action="@{enter}" method="post" th:object="${order1}">
 
-    <input type="text" th:field="*{clientName}"/> <span th:if="${#fields.hasErrors('clientName')}" th:errors="*{clientName}"></span>
-    <input type="text" th:field="*{address}"/> <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+    <input type="text" th:field="*{clientName}"/> <span th:if="${#fields.hasErrors('clientName')}"
+                                                        th:errors="*{clientName}"></span>
+    <input type="text" th:field="*{address}"/> <span th:if="${#fields.hasErrors('address')}"
+                                                     th:errors="*{address}"></span>
     <input type="submit" value="Submit"/>
 
 </form>

@@ -29,7 +29,7 @@ public class EnterController {
     private final List<Order> orders = new ArrayList<>();
     private int newId = 0;
     private int orderId = 0;
-    private int updateId=0;
+    private int updateId = 0;
 
     @GetMapping
     public String findAll(Model model) {
@@ -65,15 +65,15 @@ public class EnterController {
         }
         log.info("order is correct: {}", order);
         int i;
-        if (updateId>0) {
-            i=updateId;
-            updateId=0;
+        if (updateId > 0) {
+            i = updateId;
+            updateId = 0;
         } else {
-        orderId++;
-        i=orderId;
+            orderId++;
+            i = orderId;
         }
-        newId=0;
-        String g=orderGoods.toString();
+        newId = 0;
+        String g = orderGoods.toString();
         Order order1 = new Order(i, g, order.getClientName(), order.getAddress());
 
         orders.add(order1);
@@ -84,6 +84,7 @@ public class EnterController {
         status.setComplete();
         return "enter/order";
     }
+
     @GetMapping("order/delete_order/{id}")
     public String deleteGlobal(@PathVariable int id, Model model) {
 
@@ -92,18 +93,18 @@ public class EnterController {
         model.addAttribute("orders", orders);
         return "enter/order";
     }
+
     @GetMapping("order/update/{id}")
     public String update(@PathVariable int id, Model model) {
 
         Order order = orders.stream().filter(g -> g.getClientId() == id).findAny().orElseThrow();
-        updateId=order.getClientId();
+        updateId = order.getClientId();
         orders.remove(order);
         model.addAttribute("orders", orders);
         model.addAttribute("shopGoods", shopGoods);
         model.addAttribute("orderGoods", orderGoods);
         return "enter";
     }
-
 
 
     @ModelAttribute(name = "order1")
